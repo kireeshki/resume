@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="ru" data-theme="dark">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Максим Репко — Программист | Портфолио</title>
+        <meta
+            name="description"
+            content="Портфолио студента-программиста Репко Максима. C/C++, Python, Java, Haxe, SQL, Docker. Проекты, курсы, практика, саморазвитие."
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Nunito:wght@300;400;600;700;900&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        />
+        <link href="css/styles.css" rel="stylesheet" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            display: ["Nunito", "sans-serif"],
+                            mono: ["JetBrains Mono", "monospace"],
+                        },
+                    },
+                },
+            };
+        </script>
+        <script defer src="js/script.js"></script>
+    </head>
+    <body>
+        <div class="bg-blobs">
+            <div class="blob"></div>
+            <div class="blob"></div>
+            <div class="blob"></div>
+        </div>
+        <div class="grid-pattern"></div>
+
+        <button class="theme-fab" id="themeFab" aria-label="Переключить тему">
+            <span class="theme-icon" id="themeIcon"
+                ><i class="fa-solid fa-moon"></i
+            ></span>
+            <span class="theme-label">
+                Тёмная тема
+                <span class="theme-label-small" id="themeHint"
+                    >нажмите, чтобы сменить</span
+                >
+            </span>
+        </button>
+
+        <button class="hamburger" id="hamburger" aria-label="Открыть меню">
+            <span></span><span></span><span></span>
+        </button>
+
+        <div class="mobile-menu-overlay" id="menuOverlay"></div>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <a
+                href="#courses"
+                class="mobile-nav-link active"
+                data-section="courses"
+                >Курсы</a
+            >
+            <a href="#projects" class="mobile-nav-link" data-section="projects"
+                >Проекты</a
+            >
+            <a href="#practice" class="mobile-nav-link" data-section="practice"
+                >Практика</a
+            >
+            <a href="#selfdev" class="mobile-nav-link" data-section="selfdev"
+                >Саморазвитие</a
+            >
+            <a href="#about" class="mobile-nav-link" data-section="about"
+                >Обо мне</a
+            >
+        </div>
+
+        <nav class="navbar" id="navbar">
+            <div class="navbar-inner">
+                <div class="flex gap-8" id="navLinks">
+                    <a
+                        href="#courses"
+                        class="nav-link active"
+                        data-section="courses"
+                        >Курсы</a
+                    >
+                    <a href="#projects" class="nav-link" data-section="projects"
+                        >Проекты</a
+                    >
+                    <a href="#practice" class="nav-link" data-section="practice"
+                        >Практика</a
+                    >
+                    <a href="#selfdev" class="nav-link" data-section="selfdev"
+                        >Саморазвитие</a
+                    >
+                    <a href="#about" class="nav-link" data-section="about"
+                        >Обо мне</a
+                    >
+                </div>
+            </div>
+        </nav>
+
+        <header class="hero-section" id="heroSection">
+            <div
+                class="max-w-6xl mx-auto px-4 pt-16 pb-20 flex flex-col md:flex-row items-center gap-10"
+            >
+                <div class="fade-up flex-shrink-0">
+                    <div class="avatar-ring">
+                        <img
+                            src="images/chud.jpg"
+                            alt="Максим Репко"
+                            loading="lazy"
+                        />
+                    </div>
+                </div>
+                <div class="flex-1 text-center md:text-left">
+                    <h1 class="hero-title fade-up fade-up-d1"
+                        <br />Максим Юрьевич<br />Репко
+                    </h1>
+                    <p class="hero-spec mt-3 fade-up fade-up-d2">
+                        C/C++ &bull; Python &bull; Java &bull; Haxe &bull; SQL
+                        &bull; Docker
+                    </p>
+                    <p class="hero-pitch mt-4 fade-up fade-up-d3">
+                        Разрабатываю производительные кроссплатформенные приложения, игры, инструменты для разработки и повышения продуктивности, а также веб-сайты.
+                    </p>
+                    <div
+                        class="flex flex-wrap gap-4 mt-6 justify-center md:justify-start fade-up fade-up-d4"
+                    >
+                        <a href="#projects" class="btn-accent"
+                            ><i class="fa-solid fa-code"></i> Смотреть
+                            проекты</a
+                        >
+                        <a href="#selfdev" class="btn-outline"
+                            ><i class="fa-solid fa-road"></i> Изучить навыки</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="relative z-10">
+            <section id="courses" class="max-w-6xl mx-auto px-4 py-20">
+                <h2 class="section-title fade-up">Курсы и сертификаты</h2>
+                <p class="section-sub fade-up">
+                    Пройденные образовательные программы и полученные навыки
+                </p>
+                <div
+                    class="flex flex-wrap gap-2 mt-8 mb-8 fade-up"
+                    id="courseFilters"
+                ></div>
+                <div
+                    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+                    id="coursesGrid"
+                ></div>
+            </section>
+
+            <section id="projects" class="py-20" style="background: var(--bg2)">
+                <div class="max-w-6xl mx-auto px-4">
+                    <h2 class="section-title fade-up">Проекты</h2>
+                    <p class="section-sub fade-up">
+                        Учебные и практические проекты, сгруппированные по
+                        междисциплинарным курсам
+                    </p>
+                    <div id="projectsContainer" class="mt-12"></div>
+                </div>
+            </section>
+
+            <section id="practice" class="max-w-6xl mx-auto px-4 py-20">
+                <h2 class="section-title fade-up">Практика</h2>
+                <p class="section-sub fade-up">
+                    Коммерческий опыт и производственная практика
+                </p>
+                <div class="mt-10 grid gap-8">
+                    <div class="card p-6 fade-up">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div
+                                class="w-10 h-10 rounded-lg flex items-center justify-center"
+                                style="background: var(--glow)"
+                            >
+                                <i
+                                    class="fa-solid fa-money-bill-trend-up"
+                                    style="color: var(--accent)"
+                                ></i>
+                            </div>
+                            <h3 class="text-lg font-bold">
+                                Коммерческие проекты
+                            </h3>
+                        </div>
+                        <p
+                            style="color: var(--fg2)"
+                            class="text-sm leading-relaxed"
+                        >
+                            Участие в разработке для небольших
+                            заказчиков: автоматизация, создание простых веб-сайтов,
+                            решение проблем в существующих проектах.
+                        </p>
+                    </div>
+                    <div class="novella-card fade-up">
+                        <div class="relative z-10">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div
+                                    class="w-10 h-10 rounded-lg flex items-center justify-center"
+                                    style="background: var(--glow)"
+                                >
+                                    <i
+                                        class="fa-solid fa-book-open"
+                                        style="color: var(--accent)"
+                                    ></i>
+                                </div>
+                                <h3 class="text-lg font-bold">
+                                    Производственная практика
+                                </h3>
+                            </div>
+                            <p
+                                style="color: var(--fg2)"
+                                class="text-sm leading-relaxed mb-4"
+                            >
+                                Мне тут лгать, или правду говорить что я
+                                по 5 и более часов бумажки перебирал???
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-5">
+                                <span class="tool-tag">Docker</span
+                                ><span class="tool-tag">Linux</span
+                                ><span class="tool-tag">Python</span
+                                ><span class="tool-tag">SQL</span
+                                ><span class="tool-tag">Git</span
+                                ><span class="tool-tag">systemd</span>
+                            </div>
+                            <div
+                                class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6"
+                            >
+                                <img
+                                    src="images/leak.jpg"
+                                    alt="Практика — фото 1"
+                                    class="rounded-lg w-full aspect-video object-cover border"
+                                    style="border-color: var(--border)"
+                                    loading="lazy"
+                                />
+                                <img
+                                    src="images/leak.jpg"
+                                    alt="Практика — фото 2"
+                                    class="rounded-lg w-full aspect-video object-cover border"
+                                    style="border-color: var(--border)"
+                                    loading="lazy"
+                                />
+                                <img
+                                    src="images/leak.jpg"
+                                    alt="Практика — фото 3"
+                                    class="rounded-lg w-full aspect-video object-cover border"
+                                    style="border-color: var(--border)"
+                                    loading="lazy"
+                                />
+                                <img
+                                    src="images/leak.jpg"
+                                    alt="Практика — фото 4"
+                                    class="rounded-lg w-full aspect-video object-cover border"
+                                    style="border-color: var(--border)"
+                                    loading="lazy"
+                                />
+                            </div>
+                            <div
+                                class="p-4 rounded-xl mb-5"
+                                style="
+                                    background: var(--bg);
+                                    border: 1px solid var(--border);
+                                "
+                            >
+                                <h4 class="font-bold text-sm mb-2">
+                                    <i
+                                        class="fa-solid fa-lightbulb mr-2"
+                                        style="color: var(--accent)"
+                                    ></i
+                                    >Рефлексия
+                                </h4>
+                                <p
+                                    style="color: var(--fg2)"
+                                    class="text-sm leading-relaxed"
+                                >
+                                    Я хрен его знает что мне делать с этим чудом
+                                </p>
+                            </div>
+                            <a
+                                href="#"
+                                class="btn-accent"
+                                onclick="
+                                    showToast(
+                                        'Ссылка на интерактивную новеллу будет доступна после публикации',
+                                    );
+                                    return false;
+                                "
+                            >
+                                <i class="fa-solid fa-gamepad"></i> Открыть
+                                интерактивную новеллу
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="selfdev" class="py-20" style="background: var(--bg2)">
+                <div class="max-w-6xl mx-auto px-4">
+                    <h2 class="section-title fade-up">Саморазвитие</h2>
+                    <p class="section-sub fade-up">
+                        Направления развития и изученные технологии
+                    </p>
+                    <div
+                        class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                        id="roadmapGrid"
+                    ></div>
+                    <div class="mt-20">
+                        <h3 class="text-xl font-bold fade-up mb-2">
+                            Жизненный цикл разработки ПО (SDLC)
+                        </h3>
+                        <p
+                            class="text-sm mb-8 fade-up"
+                            style="color: var(--fg2)"
+                        >
+                            Нажмите на этап, чтобы увидеть описание и
+                            используемые инструменты
+                        </p>
+                        <div class="sdlc-timeline" id="sdlcTimeline"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="about" class="max-w-6xl mx-auto px-4 py-20">
+                <h2 class="section-title fade-up">Обо мне</h2>
+                <p class="section-sub fade-up">
+                    Профессиональная биография и контакты
+                </p>
+                <div class="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="lg:col-span-2 card p-6 fade-up">
+                        <h3 class="font-bold text-lg mb-4">
+                            <i
+                                class="fa-solid fa-user-graduate mr-2"
+                                style="color: var(--accent)"
+                            ></i
+                            >Биография
+                        </h3>
+                        <p
+                            style="color: var(--fg2)"
+                            class="text-sm leading-relaxed mb-4"
+                        >
+                            Учусь в ГБПОУ МО «Люберецкий техникум имени Героя
+                            Советского Союза, лётчика–космонавта Ю.А. Гагарина»
+                            по специальности 09.02.07 «Информационные системы и
+                            программирование». Ожидаемый год окончания — 2027.
+                        </p>
+                        <p
+                            style="color: var(--fg2)"
+                            class="text-sm leading-relaxed mb-4"
+                        >
+                            В основном занимаюсь системным программированием,
+                            созданем интерфейсов, автоматизацей, разработкой игр,
+                            и созданием модификаций для игр.
+                            Основная ОС Windows, но имеется опыт использования ОС на
+                            базе ядра Linux, опыт разработки для отечестванных и иностранных
+                            дистрибутивов ОС Linux, а также опыт разработки для ОС Android.
+                        </p>
+                    </div>
+                    <div class="flex flex-col gap-3 fade-up">
+                        <a
+                            href="https://github.com/kireeshki"
+                            target="_blank"
+                            rel="noopener"
+                            class="card-interactive p-4 flex items-center gap-3"
+                        >
+                            <i
+                                class="fa-brands fa-github text-xl"
+                                style="color: var(--accent)"
+                            ></i>
+                            <div>
+                                <div class="text-sm font-bold">GitHub</div>
+                                <div class="text-xs" style="color: var(--fg2)">
+                                    Репозитории и активность
+                                </div>
+                            </div>
+                        </a>
+                        <a
+                            href="https://t.me/"
+                            target="_blank"
+                            rel="noopener"
+                            class="card-interactive p-4 flex items-center gap-3"
+                        >
+                            <i
+                                class="fa-brands fa-telegram text-xl"
+                                style="color: var(--accent)"
+                            ></i>
+                            <div>
+                                <div class="text-sm font-bold">Telegram</div>
+                                <div class="text-xs" style="color: var(--fg2)">
+                                    По различным вопросам
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="card p-6 fade-up">
+                        <h3
+                            class="font-bold text-sm mb-4"
+                            style="color: var(--accent)"
+                        >
+                            <i class="fa-solid fa-code mr-2"></i>Языки
+                            программирования
+                        </h3>
+                        <div class="flex flex-wrap gap-2" id="langSkills"></div>
+                    </div>
+                    <div class="card p-6 fade-up">
+                        <h3
+                            class="font-bold text-sm mb-4"
+                            style="color: var(--accent)"
+                        >
+                            <i class="fa-solid fa-wrench mr-2"></i>Инструменты
+                        </h3>
+                        <div class="flex flex-wrap gap-2" id="toolSkills"></div>
+                    </div>
+                    <div class="card p-6 fade-up">
+                        <h3
+                            class="font-bold text-sm mb-4"
+                            style="color: var(--accent)"
+                        >
+                            <i class="fa-solid fa-brain mr-2"></i>Soft Skills
+                        </h3>
+                        <div class="flex flex-wrap gap-2" id="softSkills"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer
+            class="relative z-10 border-t"
+            style="border-color: var(--border); background: var(--bg2)"
+        >
+            <div class="max-w-6xl mx-auto px-4 py-8">
+                <div
+                    class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm"
+                    style="color: var(--fg2)"
+                >
+                    <div class="text-center md:text-left">
+                        <p>
+                            &copy; 2026 Максим Репко, ГБПОУ МО «Люберецкий
+                            техникум имени Героя Советского Союза,
+                            лётчика–космонавта Ю.А. Гагарина»
+                        </p>
+                        <p class="mt-1">Год окончания обучения: 2027</p>
+                    </div>
+                    <a
+                        href="https://github.com/kireeshki/resume"
+                        target="_blank"
+                        rel="noopener"
+                        class="flex items-center gap-2"
+                    >
+                        <i class="fa-brands fa-github"></i> Репозиторий сайта
+                    </a>
+                </div>
+            </div>
+        </footer>
+
+        <div class="modal-overlay" id="certModal">
+            <button class="modal-close" aria-label="Закрыть">&times;</button>
+            <img id="certModalImg" src="" alt="Сертификат" />
+        </div>
+        <div class="toast" id="toast"></div>
+    </body>
+</html>
